@@ -5,11 +5,11 @@ export default function ProductCart(product) {
 
     return (
         <ContainerProduct>
-            <p>{product.name}</p>
+            <ProductName>{product.name}</ProductName>
             <ContainerInfos>
-                <p>{product.quantity}x</p>
-                <p>@ ${product.price}</p>
-                <p>{product.price * product.quantity}</p>
+                <ProductQuantity>{product.quantity}x</ProductQuantity>
+                <UnitaryPrice>@ ${product.price.toFixed(2)}</UnitaryPrice>
+                <TotalPrice>${(product.price * product.quantity).toFixed(2)}</TotalPrice>
                 <CloseButton><img src={close} alt="button close" /></CloseButton>
             </ContainerInfos>
 
@@ -22,7 +22,8 @@ export default function ProductCart(product) {
 const ContainerProduct = styled.div`
     display: flex;
     flex-direction:column;
-    padding: 5px;
+    padding: 5px 0;
+    margin: 10px 0;
 `
 
 const CloseButton = styled.button`
@@ -48,11 +49,33 @@ const CloseButton = styled.button`
     &:hover {
         border-color: hsl(12, 20%, 44%);
     }
-
 `
 
 const ContainerInfos = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(10px,20px) repeat(2,minmax(10px,60px));
+    grid-template-rows: 1;
     margin: 10px 0;
     position: relative;
+    // background-color: #3425
+    gap: 10px;
+`
+
+
+const ProductName = styled.p`
+    font-weight: bold;
+    text-transform: capitalize;
+`
+const ProductQuantity = styled.p`
+    font-weight: 600;
+    color:hsl(14, 86%, 42%);
+`
+
+const UnitaryPrice = styled.p`
+    color:hsl(14, 25%, 72%);
+`
+
+const TotalPrice = styled.p`
+    font-weight: 600;
+    color:hsl(12, 20%, 44%);
 `
