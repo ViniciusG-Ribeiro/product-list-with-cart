@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import cake from "../../assets/images/illustration-empty-cart.svg"
+import carbon from "../../assets/images/icon-carbon-neutral.svg"
 import ProductCart from "../productCart"
 
 export default function ProductsCart({ productsCart }) {
@@ -23,6 +24,15 @@ export default function ProductsCart({ productsCart }) {
                             <p>Order Total</p> 
                             <ValueTotal>${total.toFixed(2)}</ValueTotal>
                         </TotalContainer>
+
+                        <Delivery>
+                            <img src={carbon} alt="" />
+                            <p>This is a <span>carbon-neutral</span> delivery</p>
+                        </Delivery>
+
+                        <OrderButton>
+                            Confirm Order
+                        </OrderButton>
 
                     </>
                 )
@@ -64,4 +74,40 @@ const TotalContainer = styled.div`
 const ValueTotal = styled.p`
     font-size: 26px;
     font-weight: bold;
+`
+
+const Delivery = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
+    gap: 5px;
+    background: hsl(26, 53.80%, 97.50%);
+
+    span{
+        font-weight:600;
+    }
+
+    img{
+        height: 25px;
+    }
+`
+
+const OrderButton = styled.button`
+    width: 100%;
+    background: hsl(14, 86%, 42%);
+    color: #fff;
+    margin: 20px 0px 0px;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
+    border: none;
+    border-radius: 30px;
+    
+    font-size: 16px;
+
+    &:hover{
+        background: hsl(14, 84.80%, 36.10%);
+        cursor: pointer;
+    }
 `

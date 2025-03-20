@@ -35,9 +35,11 @@ const Container = styled.div`
     border-radius: 10px;
     padding: 20px 20px;
     width: 400px;
+    min-width:270px;
 
       @media (max-width: 768px) {
       width: 90%;
+      min-width:220px;
     
   }
 `
