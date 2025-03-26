@@ -1,28 +1,18 @@
 import styled from "styled-components"
 import ProductsCart from "../productsCart"
+import { useCart } from "../../context/cart-products"
 
 
 export default function Cart() {
-    let itens = [
-        {
-            id: 1,
-            name: 'classic tiramisu',
-            quantity: 3,
-            value: 5.50
-        }, {
-            id: 2,
-            name: 'vanilla bean creme brulee',
-            quantity: 1,
-            value: 7.00
-        },
-    ]
+
+    const {cart} = useCart();
 
     return (
         <Container>
 
-            <H2tittle>Your Cart ({itens.length})</H2tittle>
+            <H2tittle>Your Cart ({cart.length})</H2tittle>
 
-            <ProductsCart productsCart={itens} />
+            <ProductsCart Products={cart} />
 
         </Container>
     )
@@ -47,16 +37,3 @@ const Container = styled.div`
 const H2tittle = styled.h2`
     color: hsl(14, 86%, 42%);
 `
-
-// const Div = styled.div`
-//     display: flex;
-//     flex-direction:column;
-//     align-items: center;
-//     margin: 40px;
-// `
-
-// const PEmpty = styled.p`
-//     color: hsl(12, 20%, 44%);
-//     font-weight: 600;
-//     margin-top: 20px;
-// `

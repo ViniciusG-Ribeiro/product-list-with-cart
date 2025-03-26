@@ -1,22 +1,24 @@
 import styled from "styled-components"
+import { useModal } from "../../context/modalContext"; // Importa o contexto do modal
 import cake from "../../assets/images/illustration-empty-cart.svg"
 import carbon from "../../assets/images/icon-carbon-neutral.svg"
 import ProductCart from "../productCart"
 
-export default function ProductsCart({ productsCart }) {
+export default function ProductsCart({ Products }) {
 
-    const total = productsCart.reduce((acc, product) => acc + product.value * product.quantity, 0);
+    const { openModal } = useModal();
 
+    const total = Products.reduce((acc, product) => acc + product.price * product.quantity, 0);
 
     return (
         <>
             {
-                productsCart.length > 0 ? (
+                Products.length > 0 ? (
                     <>
 
-                        {productsCart.map((product) => (
+                        {Products.map((product) => (
 
-                            <ProductCart key={product.id} id={product.id} name={product.name} price={product.value} quantity={product.quantity} />
+                            <ProductCart key={product.id} id={product.id} name={product.name} price={product.price} quantity={product.quantity} />
 
                         ))}
 
@@ -26,11 +28,11 @@ export default function ProductsCart({ productsCart }) {
                         </TotalContainer>
 
                         <Delivery>
-                            <img src={carbon} alt="" />
+                            <img src={carbon} alt="tree" />
                             <p>This is a <span>carbon-neutral</span> delivery</p>
                         </Delivery>
 
-                        <OrderButton>
+                        <OrderButton onClick={() => openModal(Products)}>
                             Confirm Order
                         </OrderButton>
 
@@ -38,7 +40,7 @@ export default function ProductsCart({ productsCart }) {
                 )
                     : (
                         <Div>
-                            <img src={cake} alt="" />
+                            <img src={cake} alt="cake" />
                             <PEmpty>Your added items will appear here</PEmpty>
                         </Div>
                     )

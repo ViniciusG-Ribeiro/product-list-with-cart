@@ -5,23 +5,26 @@ import decrement from "../../assets/images/icon-decrement-quantity.svg";
 import incrementHover from "../../assets/images/icon-increment-quantity-mod.svg";
 import decrementHover from "../../assets/images/icon-decrement-quantity-mod.svg";
 
-export default function ButtonProduct() {
-    let product = 0;
+import { useCart } from "../../context/cart-products";
+
+export default function ButtonProduct({Product, Quantity}) {
+
+    const { AddProduct, setQuantity } = useCart();
 
     return (
         <>
-            {product > 0 ? (
+            {Quantity > 0 ? (
                 <ButtonQuantity>
-                    <ButtonIcons>
+                    <ButtonIcons onClick={()=> setQuantity(Product.id, -1)}>
                         <img src={decrement} alt="Decrementar" />
                     </ButtonIcons>
-                    <p>{product}</p>
-                    <ButtonIcons>
+                    <p>{Quantity}</p>
+                    <ButtonIcons onClick={()=> setQuantity(Product.id, 1)}>
                         <img src={increment} alt="Incrementar" />
                     </ButtonIcons>
                 </ButtonQuantity>
             ) : (
-                <ButtonAdd>
+                <ButtonAdd onClick={()=> AddProduct({...Product, quantity:1})}>
                     <img src={iconCart} alt="Adicionar ao Carrinho" />
                     <p>Add to Cart</p>
                 </ButtonAdd>
@@ -49,6 +52,10 @@ const ButtonAdd = styled.button`
     &:hover {
         background-color: hsl(12, 62.50%, 96.90%);
         cursor: pointer;
+    }
+
+    @media (max-width: 1090px) {
+        width: 80%;
     }
 `;
 

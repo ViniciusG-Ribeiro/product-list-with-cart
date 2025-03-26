@@ -3,21 +3,27 @@
 // import { BrowserRouter } from "react-router-dom";
 import { Grid } from "./component/grid";
 import Cart from "./component/cart";
+import { ModalProvider } from "./context/modalContext";
+import { CartProvider } from "./context/cart-products";
 import { createGlobalStyle, styled } from "styled-components";
+import ModalOrder from "./component/modalOrder";
 
 
 function App() {
-
-
   return (
     <>
       <GlobalStyle />
-      <Container>
-        <Grid />
-        <Cart />
-      </Container>
+      <CartProvider>
+        <ModalProvider>
+          <Container>
+            <Grid />
+            <Cart />
+          </Container>
+          <ModalOrder />
+        </ModalProvider >
+      </CartProvider>
     </>
-  )
+  );
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -41,6 +47,7 @@ const GlobalStyle = createGlobalStyle`
 
   @media (max-width: 768px) {
      main{
+     margin: auto;
       width: 90%;
     }
   }
@@ -53,7 +60,7 @@ const Container = styled.div`
   min-height: 100vh;
   justify-content: center;
   margin-bottom: 30px;
-  // background: hsl(26, 52.60%, 29.80%);
+  //  background: hsl(26, 52.60%, 29.80%);
 
   @media (max-width: 768px) {
     flex-direction: column;

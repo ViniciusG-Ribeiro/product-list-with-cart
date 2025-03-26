@@ -1,13 +1,8 @@
 import styled from "styled-components";
 import { Product } from "../product";
-import { useEffect, useState } from "react";
 
 export const Products = ({ products }) => {
     
-    useEffect(() =>{
-        console.log(products)
-    },[products])
-
     return (
         <Div>
             {products.length > 0 ? (
@@ -33,4 +28,13 @@ gap: 1%;
 margin-top: 20px;
 grid-template-columns: repeat(3, minmax(0, 1fr));
 text-align: center;
+
+    @media (max-width: 992px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 15px;
+    }
 `

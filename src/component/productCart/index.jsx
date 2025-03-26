@@ -1,7 +1,10 @@
 import styled from "styled-components"
 import close from "../../assets/images/icon-remove-item.svg"
+import { useCart } from "../../context/cart-products"
 
 export default function ProductCart(product) {
+
+    const { RemoveProduct } = useCart();
 
     return (
         <ContainerProduct>
@@ -10,7 +13,7 @@ export default function ProductCart(product) {
                 <ProductQuantity>{product.quantity}x</ProductQuantity>
                 <UnitaryPrice>@ ${product.price.toFixed(2)}</UnitaryPrice>
                 <TotalPrice>${(product.price * product.quantity).toFixed(2)}</TotalPrice>
-                <CloseButton><img src={close} alt="button close" /></CloseButton>
+                <CloseButton onClick={() => RemoveProduct(product.id)}><img src={close} alt="button close" /></CloseButton>
             </ContainerInfos>
 
             <hr />
