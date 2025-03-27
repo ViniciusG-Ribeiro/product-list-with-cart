@@ -32,7 +32,7 @@ export const Product = ({ id, image, name, category, price }) => {
         <picture>
           <source srcSet={image.mobile} media="(max-width: 768px)" />
           <source srcSet={image.tablet} media="(max-width: 1024px)" />
-          <Img src={image.desktop} alt={name} inCart={!!productInCart}/>
+          <Img src={image.desktop} alt={name} $inCart={!!productInCart}/>
         </picture>
         <ButtonProduct Product={{ id, image, name, category, price }} Quantity={quantity}/>
       </DivImage>
@@ -60,7 +60,7 @@ const DivImage = styled.div`
 const Img = styled.img`
     border-radius: 8px;
     width: 100%;
-    border: ${({ inCart }) => (inCart ? "2px solid hsl(14, 86%, 42%)" : "none")};
+    border: ${({ $inCart }) => ($inCart ? "2px solid hsl(14, 86%, 42%)" : "none")};
 `
 
 const Category = styled.p`

@@ -63,6 +63,7 @@ const PEmpty = styled.p`
     color: hsl(12, 20%, 44%);
     font-weight: 600;
     margin-top: 20px;
+    text-align: center;
 `
 
 const TotalContainer = styled.div`

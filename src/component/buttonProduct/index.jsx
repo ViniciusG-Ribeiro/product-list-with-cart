@@ -34,6 +34,7 @@ export default function ButtonProduct({Product, Quantity}) {
 };
 
 const ButtonAdd = styled.button`
+    color: black;
     padding: 10px 20px;
     display: flex;
     gap: 8px;

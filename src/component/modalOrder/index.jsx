@@ -83,6 +83,7 @@ const ModalContent = styled.div`
 
   @media (max-width: 768px){
     width: 100%;
+    max-height: 80vh;
   }
 `;
 
@@ -113,12 +114,17 @@ const OrderInfos = styled.div`
   background: hsl(26, 53.80%, 97.50%);
   border-radius: 10px;
   margin-bottom: 20px;
+  }
 `;
 
 const OrderSummary = styled.div`
   margin-bottom: 15px;
   max-height: 350px;
   overflow-y: auto;
+
+    @media (max-width: 768px){
+    max-height: 150px;
+  }
 `;
 
 const OrderItem = styled.div`
@@ -142,6 +148,15 @@ const ContainerDetails = styled.div`
   flex-grow: 1;
   text-align: left;
   text-transform: capitalize;
+  min-width: 0;
+
+  .product-name{
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
 `
 
 const ProductDetails = styled.div`
