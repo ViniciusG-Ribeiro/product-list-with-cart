@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import ButtonProduct from "../buttonProduct";
 import { useEffect, useState } from "react";
-// import iconCart from "../../assets/images/icon-add-to-cart.svg"
 import { useCart } from "../../context/cart-products";
 
 export const Product = ({ id, image, name, category, price }) => {

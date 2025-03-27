@@ -1,6 +1,3 @@
-// import viteLogo from '/vite.svg'
-// import './App.css'
-// import { BrowserRouter } from "react-router-dom";
 import { Grid } from "./component/grid";
 import Cart from "./component/cart";
 import { ModalProvider } from "./context/modalContext";

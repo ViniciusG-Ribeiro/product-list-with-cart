@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
+import { useState } from "react";
 import productsJson from "../../assets/data/data.json";
 import { Products } from "../products";
 

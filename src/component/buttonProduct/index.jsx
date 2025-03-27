@@ -2,8 +2,6 @@ import styled from "styled-components";
 import iconCart from "../../assets/images/icon-add-to-cart.svg";
 import increment from "../../assets/images/icon-increment-quantity.svg";
 import decrement from "../../assets/images/icon-decrement-quantity.svg";
-import incrementHover from "../../assets/images/icon-increment-quantity-mod.svg";
-import decrementHover from "../../assets/images/icon-decrement-quantity-mod.svg";
 
 import { useCart } from "../../context/cart-products";
 

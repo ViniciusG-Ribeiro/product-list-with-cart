@@ -5,7 +5,7 @@ const ModalContext = createContext();
 export function ModalProvider({ children }) {
 
     const [isOpen, setIsOpen] = useState(false);
-    const [modalData, setModalData] = useState(null); // Guardar dados do pedido
+    const [modalData, setModalData] = useState(null); 
 
     const openModal = (data) => {
         setIsOpen(true);
@@ -24,7 +24,6 @@ export function ModalProvider({ children }) {
     );
 }
 
-// Hook customizado para facilitar o uso do contexto
 export function useModal() {
     return useContext(ModalContext);
 }

@@ -11,12 +11,6 @@ export const CartProvider = ({ children }) => {
 
     };
 
-    // useEffect(() => {
-
-    //     console.log("produtos:", cart)
-
-    // }, [cart])
-
     const setQuantity = (ProductId, Number) => {
 
         setcart((prevCart) => {
